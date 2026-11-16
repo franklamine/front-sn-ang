@@ -1,33 +1,54 @@
 <div>
   <form class="flex flex-col gap-3 bg-white text-sm p-4 mb-2">
+
     <div class="flex items-center gap-4">
-      <img class="w-10 h-10 rounded-full object-cover" src="" alt=""/> :
+      <img class="w-10 h-10 rounded-full object-cover" src="" alt="" />
 
+      <textarea
+        class="rounded-2xl flex-1 bg-gray-200 p-2 text-gray-700 resize-none focus:outline-none"
+        placeholder="What's on your mind ?"
+        rows="1"></textarea>
 
-      <textarea class="rounded-2xl flex-1 bg-gray-200  p-2 text-gray-400  resize-none focus:outline-none "
-      placeholder="What's on your mind ?" rows="1" >
-      </textarea>
-      <button type="submit">>>
-        </button>
+      <button type="submit">
+        <svg lucideSend class="w-8 h-8 text-green-800"></svg>
+      </button>
     </div>
+
     <p class="bg-gray-200 h-0.5"></p>
-    <div class="flex items-center justify-around ">
+
+    <div class="flex items-center justify-around">
+
+      <!-- Video -->
       <label
-        class="flex items-center gap-2 px- py-2 rounded-lg hover:bg-gray-200 transition duration-200 cursor-pointer">
+        class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-200 transition duration-200 cursor-pointer">
+
+        <svg lucideVideo class="w-5 h-5 text-red-500"></svg>
         <p>Video</p>
-        <input type="file" accept="video/*" multiple  class="hidden"/>
+
+        <input type="file" accept="video/*" multiple class="hidden" />
       </label>
+
+      <!-- Photo -->
       <label
-        class="flex items-center gap-2 px-10 py-2 rounded-lg hover:bg-gray-200 transition duration-200 cursor-pointer">
+        class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-200 transition duration-200 cursor-pointer">
+
+        <svg lucideImage class="w-5 h-5 text-green-600"></svg>
         <p>Photo</p>
-        <input type="file" accept="image/*" multiple class="hidden"/>
+
+        <input type="file" accept="image/*" multiple class="hidden" />
       </label>
+
+      <!-- Feeling / Activity -->
       <div
-        class="flex items-center gap-2 px- py-2 rounded-lg hover:bg-gray-200 transition duration-200 cursor-pointer">
+        class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-200 transition duration-200 cursor-pointer">
+
+        <svg lucideSmile class="w-5 h-5 text-yellow-500"></svg>
         <p>Feeling/activity</p>
       </div>
+
     </div>
   </form>
-  <p class="">PostItem</p>
 
+  <p>PostItem</p>
 </div>
+

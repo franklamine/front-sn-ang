@@ -1,0 +1,507 @@
+<!--<div class=" bg-gray-200 w-full ">-->
+<!--  <nav>navbar</nav>-->
+<!--  <div class="bg-white shadow-lg ">-->
+<!--    <div class="relative mt-14 mx-0 sm:mx-[8%]">-->
+
+<!--      &lt;!&ndash;      block photo de couverture&ndash;&gt;-->
+<!--      <div class="h-52 sm:h-96 w-full sm:rounded-b-lg bg-gray-200">-->
+<!--        <img class="h-52 sm:h-96 w-full sm:rounded-lg  object-cover" src="" alt="" />-->
+<!--      </div>-->
+
+<!--      <div>-->
+
+<!--        &lt;!&ndash;        block photo de profile&ndash;&gt;-->
+<!--        <div-->
+<!--          class="absolute top-32 left-32 sm:top-80 sm:left-8 z-10 w-40 h-40 rounded-full bg-gray-300 border-4 border-white">-->
+<!--          <img class="w-40 h-40 rounded-full object-cover" src="" alt="" /> :-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash;        Formulaire pour photo de couverture &ndash;&gt;-->
+
+<!--        <div-->
+<!--          class="absolute top-32 right-8 sm:top-80 sm:right-8 z-10 flex gap-2 items-center rounded-lg bg-white text-gray-700 px-6 py-3 sm:px-3 sm:py-2">-->
+<!--          <label class="cursor-pointer">-->
+<!--            <input type="file" accept="image/*" class="hidden" />-->
+<!--            <svg lucideCamera class="w-7 h-7 sm:w-auto sm:h-auto"></svg>-->
+<!--          </label>-->
+<!--          <span class="hidden sm:block">Edit Cover photo</span>-->
+<!--        </div>-->
+
+
+<!--        &lt;!&ndash;        Formulaire pour photo de profil &ndash;&gt;-->
+
+<!--        <div-->
+<!--          class="absolute h-14 w-14 rounded-full top-56 right-36 sm:top-[440px] sm:left-36 z-20 flex items-center justify-center bg-white text-gray-700">-->
+<!--          <label class="cursor-pointer">-->
+<!--            <input-->
+<!--              type="file"-->
+<!--              accept="image/*"-->
+<!--              class="hidden"-->
+<!--            />-->
+<!--            <svg lucideCamera class="w-7 h-7"></svg>-->
+
+<!--          </label>-->
+<!--        </div>-->
+
+
+<!--        &lt;!&ndash;        Infos profiles&ndash;&gt;-->
+<!--        <div-->
+<!--          class=" sm:ml-[210px] sm:mr-[20px] mt-20 sm:mt-6 flex flex-col sm:flex-row justify-between items-center">-->
+<!--          <div class="my-5 sm:my-0">-->
+<!--            <div class="font-bold text-3xl"></div>-->
+<!--            <div class="flex gap-5">-->
+<!--              <p class="sm:text-start">Suivis</p>-->
+<!--              <p class="sm:text-start"> Followers</p>-->
+<!--              <p class="sm:text-start">Likes</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="flex items-center gap-4 ">-->
+<!--            &lt;!&ndash;            <div class=`flex gap-2 items-center rounded-lg ${!followersUsers[user?.id] ?"bg-[#8A2BE2] " : "bg-gray-400" text-white px-3 py-2 cursor-pointer`>&ndash;&gt;-->
+
+<!--            <svg lucidePlus class=""></svg>-->
+<!--            <span class="">Add to story</span>-->
+
+<!--            <span class="">Suivre</span>-->
+<!--            <span class="">Suivis</span>-->
+
+<!--          </div>-->
+<!--          <div-->
+<!--            class="flex gap-2 items-center rounded-lg bg-gray-400 text-white px-3 py-2 cursor-pointer">-->
+<!--            <svg lucidePencil class=""></svg>-->
+<!--            <span class="">Edit Profile</span>-->
+<!--            <span class="">Message</span>-->
+<!--          </div>-->
+<!--          <div class="rounded-lg bg-gray-400 text-white px-3 py-3 cursor-pointer">-->
+<!--            <svg lucideChevronDown class=""></svg>-->
+<!--          </div>-->
+
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <hr class="bg-gray-400 h-[2px] my-4 " />-->
+
+<!--      &lt;!&ndash;      Petite navigation&ndash;&gt;-->
+<!--      <div class="flex justify-between items-center py-3 px-4 sm:px-0   ">-->
+<!--        <div class="flex items-center gap-4 ">-->
+<!--          <p>Posts</p>-->
+<!--          <p>About</p>-->
+<!--          <p class="hidden sm:block">Friends</p>-->
+<!--          <p class="hidden sm:block">Photos</p>-->
+<!--          <p class="hidden sm:block">Videos</p>-->
+<!--          <p class="hidden sm:block">Check-ins</p>-->
+<!--          <p>More</p>-->
+<!--        </div>-->
+<!--        <div class="rounded-lg bg-gray-300  px-3 py-2 cursor-pointer ">-->
+<!--          <svg lucideEllipsis class=""></svg>-->
+<!--        </div>-->
+
+<!--      </div>-->
+
+<!--    </div>-->
+
+<!--  </div>-->
+
+<!--</div>-->
+
+<!--<div class=" mt-4 mx- sm:mx-[8%] flex flex-col sm:flex-row gap-5">-->
+
+<!--  <div class="w-full sm:w-[40%] sm:sticky sm:top-0 sm:self-start flex flex-col gap-3 ">-->
+<!--    <div class="bg-white flex flex-col gap-5 p-4 ">-->
+<!--      <h1 class="font-semibold text-xl">Intro</h1>-->
+<!--      <button class=" bg-gray-200 w-full rounded py-1">Add bio</button>-->
+<!--      <p>lives in Quebec, Quebec</p>-->
+
+<!--      <button class=" bg-gray-200 w-full rounded py-1">Add details</button>-->
+
+<!--      <button class=" bg-gray-200 w-full rounded py-1">Add featured</button>-->
+<!--    </div>-->
+
+<!--    <div class="bg-white flex justify-between p-4 ">-->
+<!--      <button class="font-semibold text-xl ">Photos</button>-->
+<!--      <a class=" ">See All photos</a>-->
+<!--    </div>-->
+
+<!--    <div class="bg-white p-4 h-56 ">-->
+<!--      <div class="flex justify-between">-->
+<!--        <h1 class=" font-semibold text-xl ">Friends</h1>-->
+<!--        <a class=" ">See all friends</a>-->
+<!--      </div>-->
+
+<!--    </div>-->
+
+<!--    <div class="bg-white p-4 h-96 ">-->
+<!--      <div class="flex justify-between">-->
+<!--        <h1 class=" font-semibold text-xl ">Life events</h1>-->
+<!--        <a class=" ">See all </a>-->
+<!--      </div>-->
+
+<!--    </div>-->
+
+<!--  </div>-->
+
+<!--  &lt;!&ndash;  posts user connected&ndash;&gt;-->
+<!--  <div class="sm:flex-1 ">-->
+<!--    <div>FormPost-->
+<!--      <p>PostItem</p>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--</div>-->
+
+<!--<div class="w-full mx-auto sm:mx-[8%]">-->
+<!--  <p class="text-xs p-2">Privacy . Terms . Advertising . Add Choices . Cookies . More . Frank 2025</p>-->
+<!--</div>-->
+
+
+<div class="bg-gray-100 w-full min-h-screen">
+
+  <!-- HEADER PROFILE -->
+  <div class="bg-white shadow-sm">
+
+    <div class="relative mt-14 mx-0 sm:mx-[8%]">
+
+      <!-- PHOTO DE COUVERTURE -->
+      <div class="h-52 sm:h-96 w-full sm:rounded-b-lg bg-gray-200 overflow-hidden">
+
+        <img
+          class="h-52 sm:h-96 w-full sm:rounded-lg object-cover"
+          src=""
+          alt="Photo de couverture"
+        />
+
+      </div>
+
+      <!-- PHOTO DE PROFIL -->
+      <div
+        class="absolute top-32 left-32 sm:top-80 sm:left-8 z-10
+        w-40 h-40 rounded-full bg-gray-300 border-4 border-white shadow-md overflow-hidden">
+
+        <img
+          class="w-full h-full rounded-full object-cover"
+          src=""
+          alt="Photo de profil"
+        />
+
+      </div>
+
+      <!-- MODIFIER PHOTO DE COUVERTURE -->
+      <div
+        class="absolute top-32 right-8 sm:top-80 sm:right-8 z-10
+        flex gap-2 items-center rounded-lg bg-white text-gray-700
+        px-6 py-3 sm:px-3 sm:py-2 shadow-md hover:bg-gray-100
+        transition cursor-pointer">
+
+        <label class="cursor-pointer flex items-center gap-2">
+
+          <input
+            type="file"
+            accept="image/*"
+            class="hidden"
+          />
+
+          <svg lucideCamera class="w-7 h-7 sm:w-5 sm:h-5"></svg>
+
+          <span class="hidden sm:block font-medium">
+            Edit Cover photo
+          </span>
+
+        </label>
+
+      </div>
+
+      <!-- MODIFIER PHOTO DE PROFIL -->
+      <div
+        class="absolute h-14 w-14 rounded-full top-56 right-36
+        sm:top-[440px] sm:left-36 z-20 flex items-center
+        justify-center bg-white text-gray-700 shadow-md
+        hover:bg-gray-100 transition cursor-pointer">
+
+        <label class="cursor-pointer">
+
+          <input
+            type="file"
+            accept="image/*"
+            class="hidden"
+          />
+
+          <svg lucideCamera class="w-7 h-7"></svg>
+
+        </label>
+
+      </div>
+
+      <!-- INFORMATIONS DU PROFIL -->
+      <div
+        class="sm:ml-[210px] sm:mr-[20px] mt-20 sm:mt-6
+        flex flex-col sm:flex-row justify-between items-center">
+
+        <!-- NOM ET STATISTIQUES -->
+        <div class="my-5 sm:my-0 text-center sm:text-left">
+
+          <h1 class="font-bold text-3xl text-gray-800">
+            Frank
+          </h1>
+
+          <div class="flex gap-5 mt-2 text-sm text-gray-500">
+
+            <p class="cursor-pointer hover:underline">
+              120 Suivis
+            </p>
+
+            <p class="cursor-pointer hover:underline">
+              250 Followers
+            </p>
+
+            <p class="cursor-pointer hover:underline">
+              45 Likes
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- BOUTONS D'ACTION -->
+        <div class="flex items-center gap-3 mb-5 sm:mb-0">
+
+          <!-- ADD STORY / FOLLOW -->
+          <div
+            class="flex gap-2 items-center rounded-lg bg-[#8A2BE2]
+            text-white px-3 py-2 cursor-pointer hover:opacity-90
+            transition">
+
+            <svg lucidePlus class="w-5 h-5"></svg>
+
+            <span class="font-medium">
+              Add to story
+            </span>
+
+          </div>
+
+          <!-- EDIT PROFILE / MESSAGE -->
+          <div
+            class="flex gap-2 items-center rounded-lg bg-gray-500
+            text-white px-3 py-2 cursor-pointer hover:bg-gray-600
+            transition">
+
+            <svg lucidePencil class="w-5 h-5"></svg>
+
+            <span class="font-medium">
+              Edit Profile
+            </span>
+
+          </div>
+
+          <!-- MORE OPTIONS -->
+          <div
+            class="rounded-lg bg-gray-200 text-gray-700 px-3 py-3
+            cursor-pointer hover:bg-gray-300 transition">
+
+            <svg lucideChevronDown class="w-5 h-5"></svg>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- SEPARATEUR -->
+      <hr class="bg-gray-200 h-px my-4 border-0" />
+
+      <!-- PETITE NAVIGATION -->
+      <div
+        class="flex justify-between items-center py-3 px-4 sm:px-0">
+
+        <div class="flex items-center gap-4 text-gray-600 font-medium">
+
+          <p class="text-blue-600 border-b-2 border-blue-600 pb-3 cursor-pointer">
+            Posts
+          </p>
+
+          <p class="hover:text-blue-600 cursor-pointer transition">
+            About
+          </p>
+
+          <p class="hidden sm:block hover:text-blue-600 cursor-pointer transition">
+            Friends
+          </p>
+
+          <p class="hidden sm:block hover:text-blue-600 cursor-pointer transition">
+            Photos
+          </p>
+
+          <p class="hidden sm:block hover:text-blue-600 cursor-pointer transition">
+            Videos
+          </p>
+
+          <p class="hidden sm:block hover:text-blue-600 cursor-pointer transition">
+            Check-ins
+          </p>
+
+          <p class="hover:text-blue-600 cursor-pointer transition">
+            More
+          </p>
+
+        </div>
+
+        <!-- OPTIONS -->
+        <div
+          class="rounded-lg bg-gray-200 px-3 py-2 cursor-pointer
+          hover:bg-gray-300 transition">
+
+          <svg lucideEllipsis class="w-5 h-5"></svg>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- CONTENU DU PROFIL -->
+  <div class="mt-4 mx-0 sm:mx-[8%] flex flex-col sm:flex-row gap-5">
+
+    <!-- COLONNE GAUCHE -->
+    <div
+      class="w-full sm:w-[40%] sm:sticky sm:top-20
+      sm:self-start flex flex-col gap-3">
+
+      <!-- INTRO -->
+      <div class="bg-white rounded-lg shadow-sm flex flex-col gap-5 p-4">
+
+        <h2 class="font-semibold text-xl text-gray-800">
+          Intro
+        </h2>
+
+        <button
+          class="bg-gray-100 hover:bg-gray-200 w-full rounded-lg
+          py-2 text-gray-700 font-medium transition">
+
+          Add bio
+
+        </button>
+
+        <div class="flex items-center gap-3 text-gray-600">
+
+          <svg lucideMapPin class="w-5 h-5 text-gray-400"></svg>
+
+          <p>
+            Lives in Quebec, Quebec
+          </p>
+
+        </div>
+
+        <button
+          class="bg-gray-100 hover:bg-gray-200 w-full rounded-lg
+          py-2 text-gray-700 font-medium transition">
+
+          Add details
+
+        </button>
+
+        <button
+          class="bg-gray-100 hover:bg-gray-200 w-full rounded-lg
+          py-2 text-gray-700 font-medium transition">
+
+          Add featured
+
+        </button>
+
+      </div>
+
+
+      <!-- PHOTOS -->
+      <div class="bg-white rounded-lg shadow-sm p-4">
+
+        <div class="flex justify-between items-center">
+
+          <h2 class="font-semibold text-xl text-gray-800">
+            Photos
+          </h2>
+
+          <a class="text-blue-600 hover:underline cursor-pointer">
+            See All photos
+          </a>
+
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 mt-4">
+
+          <div class="h-24 bg-gray-200 rounded-lg"></div>
+          <div class="h-24 bg-gray-200 rounded-lg"></div>
+          <div class="h-24 bg-gray-200 rounded-lg"></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- FRIENDS -->
+      <div class="bg-white rounded-lg shadow-sm p-4 h-56">
+
+        <div class="flex justify-between items-center">
+
+          <h2 class="font-semibold text-xl text-gray-800">
+            Friends
+          </h2>
+
+          <a class="text-blue-600 hover:underline cursor-pointer">
+            See all friends
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- LIFE EVENTS -->
+      <div class="bg-white rounded-lg shadow-sm p-4 h-96">
+
+        <div class="flex justify-between items-center">
+
+          <h2 class="font-semibold text-xl text-gray-800">
+            Life events
+          </h2>
+
+          <a class="text-blue-600 hover:underline cursor-pointer">
+            See all
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- COLONNE DROITE : PUBLICATIONS -->
+    <div class="sm:flex-1 min-w-0">
+
+      <!-- FORMULAIRE DE PUBLICATION -->
+<!--      <app-form-post></app-form-post>-->
+
+      <!-- PUBLICATIONS -->
+      <div class="mt-4 flex flex-col gap-4">
+
+<!--        <app-post-item></app-post-item>-->
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+  <div class="w-full mx-auto sm:mx-[8%] py-4">
+
+    <p class="text-xs text-gray-500 p-2">
+      Privacy . Terms . Advertising . Ad Choices . Cookies . More . Frank 2025
+    </p>
+
+  </div>
+
+</div>
+
+

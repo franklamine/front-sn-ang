@@ -3,6 +3,7 @@ import {Home} from '../pages/home/home';
 import {Friends} from '../pages/friends/friends';
 import {Video} from '../pages/video/video';
 import {Game} from '../pages/game/game';
+import { Profile } from '../pages/profile/profile';
 
 export const routes: Routes = [
   {path: '', redirectTo: "home", pathMatch: 'full'},
@@ -10,4 +11,5 @@ export const routes: Routes = [
   {path: 'friends', component: Friends},
   {path: 'video', component: Video},
   {path: 'game', component: Game},
+  {path: 'profile', component: Profile},
 ];

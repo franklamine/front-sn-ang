@@ -1,14 +1,51 @@
+
+<!-- SIDEBAR DROITE : Suggestions d'amis -->
 <aside
-  class="hidden sm:block fixed top-16 right-0 bottom-0 w-[25%]  p-4 z-10 text-facebookText">
-  <h2 class="text-lg  mb-4 ">Suggestions d’amis</h2>
-  <ul class="space-y-3">
-    <li class="flex justify-between items-center">
-      <span class="">Emma Lou</span>
-      <button class=" hover:underline ">Ajouter</button>
-    </li>
-    <li class="flex justify-between items-center">
-      <span class="">Karim D.</span>
-      <button class=" hover:underline ">Ajouter</button>
-    </li>
-  </ul>
+  class="hidden sm:block fixed top-16 right-0 bottom-0 w-[25%]
+         p-3 z-10 text-facebookText overflow-y-auto">
+
+  <div class="bg-facebookBg rounded-2xl p-4 shadow-sm ">
+
+    <div class="flex items-center justify-between mb-5">
+      <h2 class="text-lg font-bold text-gray-800">
+        Suggestions d’amis
+      </h2>
+
+      <button class="text-sm text-blue-600 hover:text-blue-800 font-semibold transition">
+        Voir tout
+      </button>
+    </div>
+
+    <ul class="space-y-3">
+
+      <li class="flex justify-between items-center p-3 rounded-xl hover:bg-gray-50 transition duration-200">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-semibold text-blue-600">
+            EL
+          </div>
+          <span class="font-medium text-gray-700">Emma Lou</span>
+        </div>
+
+        <button class="bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white px-3 py-2 rounded-lg text-xs font-semibold transition duration-200">
+          Suivre
+        </button>
+      </li>
+
+      <li class="flex justify-between items-center p-3 rounded-xl hover:bg-gray-50 transition duration-200">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center font-semibold text-purple-600">
+            KD
+          </div>
+          <span class="font-medium text-gray-700">Karim D.</span>
+        </div>
+
+        <button class="bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white px-3 py-2 rounded-lg text-xs font-semibold transition duration-200">
+         Suivre
+        </button>
+      </li>
+
+    </ul>
+  </div>
 </aside>
+
+

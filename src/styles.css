@@ -8,3 +8,11 @@
   --color-facebookSubtext: #65676b;
   --color-fbPlaceholder: #bcc0c8;
 }
+
+a.active {
+  color: dodgerblue;
+}
+
+a.active hr {
+  display: block;
+}
