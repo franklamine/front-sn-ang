@@ -4,11 +4,7 @@ import {AsideDroite} from '../../composants/aside-droite/aside-droite';
 import {Posts} from '../../composants/posts/posts';
 
 @Component({
-  imports: [
-    AsideGauche,
-    AsideDroite,
-    Posts
-  ],
+  imports: [AsideGauche, AsideDroite, Posts],
   selector: 'app-home',
   styleUrl: './home.css',
   templateUrl: './home.html',

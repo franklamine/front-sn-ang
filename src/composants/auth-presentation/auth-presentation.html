@@ -1,0 +1,66 @@
+<div class="order-2 text-center md:text-left space-y-7">
+
+  <!-- LOGO ET NOM -->
+  <div>
+    <div class="flex items-center justify-center md:justify-start gap-3">
+      <div class="w-14 h-14 flex items-center justify-center bg-blue-600 rounded-2xl shadow-lg">
+        <svg lucideGlobe class="w-9 h-9 text-white"></svg>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-blue-600 tracking-tight">SocialNetwork</h1>
+    </div>
+    <div class="w-20 h-1.5 bg-blue-500 rounded-full mx-auto md:mx-0 mt-6"></div>
+  </div>
+
+  <!-- SLOGAN -->
+  <div class="space-y-3">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
+      {{ titre }}
+      <span class="text-blue-600">{{ sousTitre }}</span>
+    </h2>
+    <p class="text-gray-600 text-lg leading-relaxed">{{ description }}</p>
+  </div>
+
+  <!-- FONCTIONNALITÉS -->
+  <div class="space-y-5 pt-3">
+
+    @for (fonctionnalite of fonctionnalites; track fonctionnalite.titre) {
+      <div class="flex items-center gap-4 text-left">
+        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-100 text-blue-600 shrink-0">
+
+          @switch (fonctionnalite.icone) {
+
+            @case ('users') {
+              <svg lucideUsers class="w-6 h-6"></svg>
+            }
+            @case ('image') {
+              <svg lucideImage class="w-6 h-6"></svg>
+            }
+            @case ('video') {
+              <svg lucideVideo class="w-6 h-6"></svg>
+            }
+            @case ('gamepad') {
+              <svg lucideGamepad2 class="w-6 h-6"></svg>
+            }
+            @case ('compass') {
+              <svg lucideCompass class="w-6 h-6"></svg>
+            }
+          }
+
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-800">{{ fonctionnalite.titre }}</h3>
+          <p class="text-sm text-gray-500">{{ fonctionnalite.description }}</p>
+        </div>
+      </div>
+
+    }
+
+  </div>
+
+  <!-- MESSAGE FINAL -->
+  <div class="flex items-center justify-center md:justify-start gap-2 text-blue-600 pt-2">
+    <svg lucideHeart class="w-5 h-5"></svg>
+    <p class="text-sm font-medium">{{ messageFinal }}</p>
+  </div>
+
+</div>

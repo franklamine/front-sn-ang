@@ -1,0 +1,134 @@
+<div class="min-h-screen bg-facebookBg flex items-center justify-center px-5 py-12">
+
+  <div class="w-full max-w-6xl mx-auto">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+      <!-- GAUCHE : FORMULAIRE DE CONNEXION -->
+      <div class="order-1 w-full max-w-md mx-auto md:mx-0 md:ml-auto">
+
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+
+          <!-- TITRE -->
+          <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-blue-600 mb-2">Connexion</h2>
+            <p class="text-gray-500">Heureux de vous revoir !</p>
+          </div>
+
+          <form class="space-y-5" (ngSubmit)="onSubmit()">
+
+            <!-- EMAIL -->
+            <div>
+              <label for="email" class="block text-sm font-semibold text-gray-700">Adresse email</label>
+              <div class="relative mt-2">
+                <svg lucideMail class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></svg>
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  [(ngModel)]="utilisateur.email"
+                  required
+                  email
+                  #email="ngModel"
+                  placeholder="exemple@email.com"
+                  class="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                />
+              </div>
+
+              @if (email.invalid && email.touched) {
+                <span class="text-red-500 text-sm mt-1 block">
+
+                  @if (email.errors?.['required']) {
+                    Veuillez saisir votre email
+                  }
+
+                  @if (email.errors?.['email']) {
+                    Adresse email invalide
+                  }
+
+                </span>
+              }
+
+            </div>
+
+            <!-- MOT DE PASSE -->
+            <div>
+              <label for="password" class="block text-sm font-semibold text-gray-700">Mot de passe</label>
+              <div class="relative mt-2">
+                <svg lucideLock class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></svg>
+
+                <input
+                  type="password"
+                  id="password"
+                  name="motDePasse"
+                  [(ngModel)]="utilisateur.motDePasse"
+                  required
+                  minlength="4"
+                  #motDePasse="ngModel"
+                  placeholder="Votre mot de passe"
+                  class="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                />
+
+              </div>
+
+              @if (motDePasse.invalid && motDePasse.touched) {
+                <span class="text-red-500 text-sm mt-1 block">
+
+                  @if (motDePasse.errors?.['required']) {
+                    Veuillez saisir votre mot de passe
+                  }
+
+                  @if (motDePasse.errors?.['minlength']) {
+                    Le mot de passe doit contenir au moins 4 caractères
+                  }
+
+                </span>
+              }
+
+            </div>
+
+            <!-- MOT DE PASSE OUBLIÉ -->
+            <div class="text-right">
+              <a routerLink="/mot-de-passe-oublier"
+                 class="text-sm text-blue-500 hover:text-blue-700 hover:underline transition">
+                Mot de passe oublié ?
+              </a>
+            </div>
+
+            <!-- BOUTON CONNEXION -->
+            <button type="submit"
+                    class="w-full flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md">
+              <svg lucideLogIn class="w-5 h-5"></svg>
+              Se connecter
+            </button>
+
+          </form>
+
+          <!-- INSCRIPTION -->
+          <div class="mt-7 pt-6 border-t border-gray-200 text-center">
+            <p class="text-sm text-gray-600">
+              Pas encore de compte ?
+              <a routerLink="/register" class="text-blue-600 hover:text-blue-800 hover:underline font-semibold">S'inscrire</a>
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- DROITE : PRÉSENTATION -->
+      <div class="order-2">
+        <app-auth-presentation />
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="text-center text-gray-500 text-sm mt-12">
+      © 2025 SocialNetwork. Tous droits réservés.
+    </footer>
+
+  </div>
+
+</div>

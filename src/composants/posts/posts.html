@@ -1,5 +1,7 @@
 <div>
-  <form class="flex flex-col gap-3 bg-white text-sm p-4 mb-2">
+
+  <!-- FORMULAIRE DE CRÉATION DE PUBLICATION -->
+  <form class="mt-20 box-border py-2 px-4 mb-2 sm:mx-[25%] flex flex-col gap-3 bg-white text-sm">
 
     <div class="flex items-center gap-4">
       <img class="w-10 h-10 rounded-full object-cover" src="" alt="" />
@@ -7,10 +9,11 @@
       <textarea
         class="rounded-2xl flex-1 bg-gray-200 p-2 text-gray-700 resize-none focus:outline-none"
         placeholder="What's on your mind ?"
-        rows="1"></textarea>
+        rows="1">
+      </textarea>
 
       <button type="submit">
-        <svg lucideSend class="w-8 h-8 text-green-800"></svg>
+        <svg lucideSend class="w-8 h-8 text-blue-500"></svg>
       </button>
     </div>
 
@@ -18,30 +21,25 @@
 
     <div class="flex items-center justify-around">
 
-      <!-- Video -->
+      <!-- VIDEO -->
       <label
         class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-200 transition duration-200 cursor-pointer">
-
         <svg lucideVideo class="w-5 h-5 text-red-500"></svg>
         <p>Video</p>
-
         <input type="file" accept="video/*" multiple class="hidden" />
       </label>
 
-      <!-- Photo -->
+      <!-- PHOTO -->
       <label
         class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-200 transition duration-200 cursor-pointer">
-
         <svg lucideImage class="w-5 h-5 text-green-600"></svg>
         <p>Photo</p>
-
         <input type="file" accept="image/*" multiple class="hidden" />
       </label>
 
-      <!-- Feeling / Activity -->
+      <!-- FEELING / ACTIVITY -->
       <div
         class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-200 transition duration-200 cursor-pointer">
-
         <svg lucideSmile class="w-5 h-5 text-yellow-500"></svg>
         <p>Feeling/activity</p>
       </div>
@@ -49,6 +47,143 @@
     </div>
   </form>
 
-  <p>PostItem</p>
-</div>
+  <!-- LISTE DES PUBLICATIONS -->
+  <div class="sm:mx-[25%] flex flex-col gap-4">
+    <!--    <p>Nombre de publications : {{ posts.length }}</p>-->
+    @for (post of posts(); track post.id) {
+      <div class="bg-white shadow rounded-lg w-full overflow-hidden">
 
+        <!-- EN-TÊTE DE LA PUBLICATION -->
+        <div class="flex items-center gap-3 px-4 py-3">
+
+          <!-- PHOTO DE PROFIL -->
+          @if (post.author.userProfile) {
+            <img
+              [routerLink]="['/profile', post.author.id]"
+              [src]="post.author.userProfile"
+              [alt]="post.author.prenom"
+              class="w-10 h-10 rounded-full object-cover cursor-pointer"
+            />
+          } @else {
+            <div [routerLink]="['/profile', post.author.id]"
+                 class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+              <svg lucideUserCircle class="w-8 h-8 text-gray-400"></svg>
+            </div>
+
+          }
+
+
+          <!-- INFORMATIONS DE L'AUTEUR -->
+          <div class="flex-1 min-w-0">
+
+            <h3 class="font-semibold text-sm text-gray-800">
+              {{ post.author.prenom }}
+            </h3>
+
+            <p class="text-xs text-gray-500">
+              {{ formatDate(post.createdAt) }}
+            </p>
+
+          </div>
+
+          <!-- MENU DE LA PUBLICATION -->
+          <button type="button" class="p-2 rounded-full hover:bg-gray-100 transition">
+            <svg lucideEllipsis class="w-5 h-5 text-gray-500"></svg>
+          </button>
+
+        </div>
+
+        <!-- MESSAGE -->
+        @if (post.message) {
+          <p class="px-4 pb-3 text-sm text-gray-800 whitespace-pre-wrap">
+            {{ post.message }}
+          </p>
+
+        }
+
+
+        <!-- PHOTO -->
+        @if (post.urlPhoto) {
+          <img
+            [src]="post.urlPhoto"
+            alt="Photo de la publication"
+            class="w-full max-h-[600px] object-cover"
+          />
+
+        }
+
+
+        <!-- VIDEO -->
+        @if (post.urlVideo) {
+          <video controls class="w-full max-h-[600px] bg-black">
+            <source [src]="post.urlVideo" />
+            Votre navigateur ne supporte pas la lecture vidéo.
+          </video>
+
+        }
+
+
+        <!-- NOMBRE DE LIKES ET COMMENTAIRES -->
+        <div class="flex items-center justify-between px-4 py-3 text-sm text-gray-500">
+
+          <div class="flex items-center gap-2">
+
+            <div class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center">
+              <svg lucideThumbsUp class="w-3.5 h-3.5 text-white"></svg>
+            </div>
+
+            <span>{{ post.likeCount }}</span>
+
+          </div>
+
+          <div class="flex items-center gap-4">
+
+            <span>{{ post.commentCount }} commentaires</span>
+
+            <span>0 partage</span>
+
+          </div>
+
+        </div>
+
+        <div class="mx-4 border-t border-gray-200"></div>
+
+        <!-- ACTIONS DE LA PUBLICATION -->
+        <div class="flex items-center justify-around px-2 py-1 text-gray-500">
+
+          <!-- LIKE -->
+          <button
+            type="button"
+            class="flex items-center justify-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition flex-1"
+          >
+            <svg lucideHeart class="w-5 h-5"></svg>
+            <span class="text-sm font-medium">J'aime</span>
+          </button>
+
+          <!-- COMMENTAIRE -->
+          <button
+            type="button"
+            class="flex items-center justify-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition flex-1"
+          >
+            <svg lucideMessageCircle class="w-5 h-5"></svg>
+            <span class="text-sm font-medium">Commenter</span>
+          </button>
+
+          <!-- PARTAGE -->
+          <button
+            type="button"
+            class="flex items-center justify-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition flex-1"
+          >
+            <svg lucideShare2 class="w-5 h-5"></svg>
+            <span class="text-sm font-medium">Partager</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    }
+
+  </div>
+
+</div>

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { LucideBell, LucideGamepad2, LucideHouse, LucideMenu, LucideMessageCircle,
-  LucideSearch, LucideUsers, LucideVideo } from '@lucide/angular';
+import {
+  LucideBell, LucideGamepad2, LucideHouse, LucideMenu, LucideMessageCircle,
+  LucideSearch, LucideUsers, LucideVideo
+} from '@lucide/angular';
 
 @Component({
   imports: [
