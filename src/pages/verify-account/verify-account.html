@@ -1,0 +1,117 @@
+<div class="min-h-screen bg-facebookBg flex items-center justify-center px-5 py-12">
+
+  <div class="w-full max-w-md">
+
+    <div class="bg-white rounded-2xl shadow-xl p-8">
+
+      <!-- TITRE -->
+      <div class="text-center mb-8">
+        <div class="flex justify-center mb-4">
+          <svg lucideShieldCheck class="w-14 h-14 text-blue-600"></svg>
+        </div>
+
+        <h2 class="text-3xl font-bold text-blue-600 mb-2">
+          Activation du compte
+        </h2>
+
+        <p class="text-gray-500">
+          Vérifiez votre adresse email pour activer votre compte.
+        </p>
+      </div>
+
+      <!-- FORMULAIRE -->
+      <form
+        class="space-y-5"
+        (ngSubmit)="onSubmit(activationForm)"
+        #activationForm="ngForm"
+      >
+
+        <div>
+          <label for="code" class="block text-sm font-semibold text-gray-700">
+            Code reçu par email
+          </label>
+
+          <div class="relative mt-2">
+            <svg lucideShieldCheck
+                 class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+            </svg>
+
+            <input
+              type="text"
+              id="code"
+              name="code"
+              [(ngModel)]="activation.code"
+              required
+              minlength="6"
+              maxlength="6"
+              pattern="[0-9]{6}"
+              #code="ngModel"
+              placeholder="Entrez votre code à 6 chiffres"
+              class="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+            />
+          </div>
+
+          @if (code.invalid && code.touched) {
+            <span class="text-red-500 text-sm mt-1 block">
+              @if (code.errors?.['required']) {
+                Veuillez saisir votre code d'activation
+              }
+
+              @if (code.errors?.['minlength'] || code.errors?.['pattern']) {
+                Le code doit contenir exactement 6 chiffres
+              }
+            </span>
+          }
+        </div>
+
+        <!-- BOUTON -->
+        <button
+          type="submit"
+          class="w-full flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md"
+        >
+          <svg lucideShieldCheck class="w-5 h-5"></svg>
+          Activer mon compte
+        </button>
+
+      </form>
+
+      <!-- RENVOYER UN NOUVEAU CODE -->
+      @if (afficherLienRenvoyer) {
+        <div class="mt-6 pt-5 border-t border-gray-200 text-center">
+          <p class="text-sm text-gray-600 mb-3">
+            Votre code est invalide ou expiré ?
+          </p>
+
+          <button
+            type="button"
+            (click)="demanderNouveauCode()"
+            class="text-blue-600 hover:text-blue-800 hover:underline font-semibold transition"
+          >
+            Renvoyer un nouveau code
+          </button>
+        </div>
+      }
+
+      <!-- RETOUR CONNEXION -->
+      <div class="mt-7 pt-6 border-t border-gray-200 text-center">
+        <p class="text-sm text-gray-600">
+          Vous avez déjà activé votre compte ?
+          <a
+            routerLink="/login"
+            class="text-blue-600 hover:text-blue-800 hover:underline font-semibold"
+          >
+            Se connecter
+          </a>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="text-center text-gray-500 text-sm mt-8">
+      © 2025 SocialNetwork. Tous droits réservés.
+    </footer>
+
+  </div>
+
+</div>

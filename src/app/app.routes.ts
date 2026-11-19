@@ -9,6 +9,9 @@ import { Register } from '../pages/register/register';
 import { MainLayout } from '../composants/main-layout/main-layout';
 import { authGuard, guestGuard } from '../guards/auth-guard';
 import { NotFound } from '../pages/not-found/not-found';
+import { VerifyAccount } from '../pages/verify-account/verify-account';
+import { ForgotPassword } from '../pages/forgot-password/forgot-password';
+import { ResetPassword } from '../pages/reset-password/reset-password';
 
 export const routes: Routes = [
   {
@@ -26,7 +29,10 @@ export const routes: Routes = [
   },
 
   { path: 'login', component: Login, canActivate: [guestGuard] },
+  { path: 'verify-account', component: VerifyAccount },
+  { path: 'forgot-password', component: ForgotPassword },
+  { path: 'reset-password', component: ResetPassword },
 
   { path: 'register', component: Register, canActivate: [guestGuard] },
-  { path: '**', component: NotFound, },
+  { path: '**', component: NotFound },
 ];
