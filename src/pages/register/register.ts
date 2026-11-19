@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   LucideLock,
   LucideMail,
@@ -6,9 +6,11 @@ import {
   LucideUser,
   LucideUserPlus,
 } from '@lucide/angular';
-import { RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { FormsModule, NgForm } from '@angular/forms';
 import { AuthPresentation } from '../../composants/auth-presentation/auth-presentation';
+import { UserRegister } from '../../modeles/userModele';
+import { AuthService } from '../../services/auth-service/auth-service';
 
 @Component({
   imports: [
@@ -26,7 +28,10 @@ import { AuthPresentation } from '../../composants/auth-presentation/auth-presen
   templateUrl: './register.html',
 })
 export class Register {
-  utilisateur = {
+  authService = inject(AuthService);
+  router = inject(Router);
+
+  utilisateur: UserRegister = {
     nom: '',
     prenom: '',
     email: '',
@@ -36,5 +41,17 @@ export class Register {
 
   inscriptionEnCours = false;
 
-  onSubmit() {}
+  onSubmit(registerForm: NgForm):void {
+    this.authService.singnUp(registerForm.value).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.router.navigate(['/login']);
+      },
+      error: (err) => {
+        console.log(err);
+        registerForm.controls['motDePasse']?.reset();
+        registerForm.controls['motDePasseConfirmation']?.reset();
+      },
+    });
+  }
 }

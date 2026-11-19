@@ -7,12 +7,14 @@ import { Profile } from '../pages/profile/profile';
 import { Login } from '../pages/login/login';
 import { Register } from '../pages/register/register';
 import { MainLayout } from '../composants/main-layout/main-layout';
+import { authGuard, guestGuard } from '../guards/auth-guard';
+import { NotFound } from '../pages/not-found/not-found';
 
 export const routes: Routes = [
   {
     path: '',
     component: MainLayout,
-
+    canActivate: [authGuard],
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: Home },
@@ -23,7 +25,8 @@ export const routes: Routes = [
     ],
   },
 
-  { path: 'login', component: Login },
+  { path: 'login', component: Login, canActivate: [guestGuard] },
 
-  { path: 'register', component: Register },
+  { path: 'register', component: Register, canActivate: [guestGuard] },
+  { path: '**', component: NotFound, },
 ];

@@ -48,7 +48,7 @@
   </form>
 
   <!-- LISTE DES PUBLICATIONS -->
-  <div class="sm:mx-[25%] flex flex-col gap-4">
+  <div class="sm:mx-[25%] flex flex-col gap-1">
     <!--    <p>Nombre de publications : {{ posts.length }}</p>-->
     @for (post of posts(); track post.id) {
       <div class="bg-white shadow rounded-lg w-full overflow-hidden">
@@ -182,6 +182,8 @@
 
       </div>
 
+    } @empty {
+      <p class=" mt-24 text-center">Chargement...</p>
     }
 
   </div>

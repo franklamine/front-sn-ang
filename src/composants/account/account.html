@@ -1,0 +1,73 @@
+<div class="bg-white rounded-xl shadow-xl transition duration-200">
+
+  <!-- INFORMATIONS DU COMPTE -->
+  <div class="rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.25)] p-4 mx-3">
+
+    <div class="flex items-center gap-2 mb-3">
+      <a
+        routerLink="['/profile', userConnected?.id]"
+        (click)="close.emit()">
+
+        @if (true) {
+          <img
+            src="userConnected.userProfile"
+            alt="Profile"
+            class="w-10 h-10 rounded-full object-cover" />
+        } @else {
+          <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+            <svg lucideUser class="w-6 h-6 text-gray-500"></svg>
+          </div>
+        }
+
+      </a>
+      <p class="font-medium">userConnected?.prenom</p>
+    </div>
+
+    <hr class="bg-gray-200 h-[2px]" />
+
+    <p class="rounded-lg px-2 py-1 bg-gray-200 text-center mt-3 cursor-pointer">
+      Voir tous le profil
+    </p>
+
+  </div>
+
+  <!-- PARAMÈTRES -->
+  <div class="flex items-center gap-2 mx-4 mt-3 cursor-pointer hover:bg-gray-200 p-2 rounded-lg">
+    <svg lucideSettings class="w-5 h-5 text-gray-600"></svg>
+    <p>Paramètres et confidentialité</p>
+  </div>
+
+  <!-- AIDE -->
+  <div class="flex items-center gap-2 mx-4 mt-3 cursor-pointer hover:bg-gray-200 p-2 rounded-lg">
+    <svg lucideCircleHelp class="w-5 h-5 text-gray-600"></svg>
+    <p>Aide et assistance</p>
+  </div>
+
+  <!-- ACCESSIBILITÉ -->
+  <div class="flex items-center gap-2 mx-4 mt-3 cursor-pointer hover:bg-gray-200 p-2 rounded-lg">
+    <svg lucideSun class="w-5 h-5 text-gray-600"></svg>
+    <p>Affichage et accessibilité</p>
+  </div>
+
+  <!-- FEEDBACK -->
+  <div class="flex items-center gap-2 mx-4 mt-3 cursor-pointer hover:bg-gray-200 p-2 rounded-lg">
+    <svg lucideMessageCircle class="w-5 h-5 text-gray-600"></svg>
+    <p>Donner votre avis</p>
+  </div>
+
+  <!-- DÉCONNEXION -->
+  <button
+    type="button"
+    (click)="deconnexion()"
+    class="flex items-center gap-2 mx-4 mt-3 p-2 rounded-lg  bg-red-500 hover:bg-red-700 text-white w-[calc(100%-2rem)] text-left cursor-pointer transition duration-200">
+
+    <svg lucideLogOut class="w-5 h-5 text-white"></svg>
+    <span>Déconnexion</span>
+
+  </button>
+
+  <p class="mx-4 mt-8 pb-4 text-xs text-gray-600">
+    Confidentialité · Conditions d’utilisation · LFSOL © 2025
+  </p>
+
+</div>

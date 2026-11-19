@@ -131,15 +131,27 @@
     <!-- PROFIL -->
     <button
       type="button"
+      (click)="toggleAccount()"
       aria-label="Mon profil"
       class="relative group rounded-full cursor-pointer ring-2 ring-transparent hover:ring-blue-400 transition duration-200">
-      <img src="" alt="Profile" class="w-10 h-10 rounded-full object-cover" />
-      <span
-        class="absolute left-1/2 -translate-x-1/2 top-full mt-2text-sm bg-gray-800 text-white px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap z-50 shadow-lgpointer-events-none">
-        Account
-      </span>
-    </button>
 
+      <img
+        src=""
+        alt="Profile"
+        class="w-10 h-10 rounded-full object-cover" />
+
+      <span
+        class="absolute left-1/2 -translate-x-1/2 top-full mt-2 text-sm bg-gray-800 text-white px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap z-50 shadow-lg pointer-events-none">
+    Account
+  </span>
+
+    </button>
   </div>
+
+  @if (showAccount()) {
+    <div class="absolute top-full right-4 mt-2 w-[300px] z-50">
+      <app-account (close)="closeAccount()"></app-account>
+    </div>
+  }
 
 </nav>

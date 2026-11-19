@@ -15,6 +15,7 @@ import { RouterLink } from '@angular/router';
 import { PostService } from '../../services/posts-service/post-service';
 import { formatDistanceToNow } from 'date-fns';
 import { fr } from 'date-fns/locale';
+import { Post } from '../../modeles/postModele';
 
 @Component({
   imports: [
@@ -36,7 +37,7 @@ import { fr } from 'date-fns/locale';
 })
 export class Posts implements OnInit {
   private postService = inject(PostService);
-  posts = signal<any[]>([]);
+  posts = signal<Post[]>([]);
 
   ngOnInit(): void {
     this.chargerPublications();
@@ -59,5 +60,5 @@ export class Posts implements OnInit {
       locale: fr
     });
   }
-  
+
 }
